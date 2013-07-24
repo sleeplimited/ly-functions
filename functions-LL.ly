@@ -1,3 +1,4 @@
+  %% From Lion's Lament 24 July
 % Right-Hand Articulations
 %% p i m a c
 rhc = \markup { \fontsize #-5 \italic "c" }
