@@ -19,6 +19,23 @@ oneStrFlick = \markup { \rotate #180
     \arrow-head #Y #DOWN ##f
   }  
   }
+oneStrMFlick = \markup {  
+    \center-column {
+      \rotate #180 {
+        \combine
+          \draw-line #'(0 . 1.2)
+          \combine
+            \fontsize #-3 
+            \arrow-head #Y #DOWN ##f
+            \raise #0.4
+            \fontsize #-3 
+            \arrow-head #Y #DOWN ##f
+      }
+  \raise #2.2
+   \fontsize #-5 \italic "m" 
+ } 
+ }
+  
 twoStrFlick = \markup { \rotate #180
   \center-column {
     \combine
@@ -37,7 +54,7 @@ twoStrMFlick = \markup {
   \center-column {
    \rotate #180 {
    \combine
-    \draw-line #'(0 . 2.4)
+    \draw-line #'(0 . 2.7)
     \combine
     \fontsize #-3 
     \arrow-head #Y #DOWN ##f
@@ -45,7 +62,7 @@ twoStrMFlick = \markup {
     \fontsize #-3 
     \arrow-head #Y #DOWN ##f
   }
-  \raise #2
+  \raise #2.2
    \fontsize #-5 \italic "m" 
   }
 
@@ -207,8 +224,21 @@ twoStrDamp = {
   \once \override TextSpanner #'color = #(x11-color "plum")
   \once \override TextSpanner #'layer = #-1
   \once \override TextSpanner #'(bound-details left text) = \markup {
-     \draw-line #'(0 . -1.2) }
+    \lower #0.76
+    \halign #CENTER
+     \beam #0.6 #0 #2.25 }
    }
+threeStrDamp = {
+  \once \override TextSpanner #'style = #'line
+  \once \override TextSpanner #'thickness = #8
+  \once \override TextSpanner #'color = #(x11-color "plum")
+  \once \override TextSpanner #'layer = #-1
+  \once \override TextSpanner #'(bound-details left text) = \markup {
+    \lower #1.52
+    \halign #CENTER
+     \beam #0.6 #0 #3.75 }
+
+}
 % Left Hand Articulations
 %% 1 2 3 4 t
 lhone = \markup { \fontsize #-5 \circle \pad-markup #0.1 "1" }
@@ -376,10 +406,12 @@ bassSnare = \markup {
     \halign #CENTER
     \override #'(box-padding . 0) 
     \rounded-box {
-      \draw-line #'(1 . 0.5)
+      \draw-line #'(1 . 0.5) }
     \raise #2
-      \filled-box #'(0 . 0.5) #'(0 . 0.5) #0 
-    }
+      \combine
+      \draw-line#'(0 . 1)
+      \halign #CENTER
+      \filled-box #'(-0.1 . 0.6) #'(-0.1 . 0.6) #0.2 
   }
 }
 % Misc.
