@@ -33,6 +33,23 @@ twoStrFlick = \markup { \rotate #180
   }
 
 }
+twoStrMFlick = \markup {   
+  \center-column {
+   \rotate #180 {
+   \combine
+    \draw-line #'(0 . 2.4)
+    \combine
+    \fontsize #-3 
+    \arrow-head #Y #DOWN ##f
+    \raise #0.4
+    \fontsize #-3 
+    \arrow-head #Y #DOWN ##f
+  }
+  \raise #2
+   \fontsize #-5 \italic "m" 
+  }
+
+}
 threeStrFlick = \markup { \rotate #180
   \center-column {
     \combine
@@ -184,7 +201,14 @@ strDampening = {
   \once \override TextSpanner #'color = #(x11-color "plum")
   \once \override TextSpanner #'layer = #-1
 }
-
+twoStrDamp = {
+  \once \override TextSpanner #'style = #'line
+  \once \override TextSpanner #'thickness = #8
+  \once \override TextSpanner #'color = #(x11-color "plum")
+  \once \override TextSpanner #'layer = #-1
+  \once \override TextSpanner #'(bound-details left text) = \markup {
+     \draw-line #'(0 . -1.2) }
+   }
 % Left Hand Articulations
 %% 1 2 3 4 t
 lhone = \markup { \fontsize #-5 \circle \pad-markup #0.1 "1" }
@@ -348,11 +372,12 @@ bass = \markup {
 bassSnare = \markup {
   \center-column {
     \combine
-    \draw-line #'(0 . 3)
+    \draw-line #'(0 . 2)
     \halign #CENTER
     \override #'(box-padding . 0) 
     \rounded-box {
       \draw-line #'(1 . 0.5)
+    \raise #2
       \filled-box #'(0 . 0.5) #'(0 . 0.5) #0 
     }
   }
